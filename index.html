@@ -383,50 +383,35 @@
         .mobile-nav a { font-size: 1.5rem; font-weight: 700; text-decoration: none; color: var(--black); transition: color 0.3s; cursor: pointer; }
         .mobile-nav-close { position: absolute; top: 1.5rem; right: 1.5rem; background: none; border: none; font-size: 2rem; cursor: pointer; }
 
-        /* MEDIA QUERIES CORRIGÉES */
-        /* 🚨 FORCE MOBILE - À AJOUTER EN DERNIER */
-@media (max-width: 968px) {
-    .app-section {
-        flex-direction: column !important;
-        padding: 2rem 1rem !important;
-    }
+       @media (max-width: 968px) {
     .app-mockups {
-        height: 250px !important;
-        width: 100% !important;
-        max-width: 400px !important;
-        margin: 0 auto 2rem !important;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        gap: -20px; /* Chevauchement contrôlé */
+        height: auto;
+        min-height: 300px;
+        padding: 2rem 0;
     }
     .phone {
+        position: relative !important; /* Override absolute */
+        left: auto !important;
+        right: auto !important;
+        top: auto !important;
         transform: none !important;
-        opacity: 1 !important;
+        margin: 0 -15px; /* Chevauchement latéral */
     }
-    .phone-1 {
-        width: 130px !important;
-        height: 260px !important;
-        left: 10px !important;
-        top: 0 !important;
-    }
-    .phone-2 {
-        width: 110px !important;
-        height: 220px !important;
-        left: 90px !important;
-        top: 20px !important;
-    }
-    .phone-3 {
-        width: 90px !important;
-        height: 180px !important;
-        left: 170px !important;
-        top: 40px !important;
-    }
-    .app-text {
-        text-align: center !important;
-        padding: 0 !important;
-        width: 100% !important;
-    }
-    .app-text h2 {
-        font-size: 1.5rem !important;
-    }
+    .phone-1 { z-index: 3; }
+    .phone-2 { z-index: 2; margin-top: -30px; }
+    .phone-3 { z-index: 1; margin-top: -60px; }
 }
+    .app-text {
+        padding-left: 0;
+        padding-right: 0;
+        text-align: center;
+        margin-top: 1rem;
+    }
+    .app-text h2 { font-size: 1.8rem; margin-bottom: 1rem; }
     .app-text p { font-size: 0.9rem; line-height: 1.6; margin-bottom: 1.5rem; }
     .app-tag { margin-bottom: 0.75rem; }
 
