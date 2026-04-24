@@ -385,67 +385,76 @@
 
         /* MEDIA QUERIES CORRIGÉES */
         @media (max-width: 968px) {
-            .navbar { width: 100%; max-width: 100%; margin: 0; border-radius: 0; padding: 1rem 1.5rem; }
-            .nav-links { display: none; }
-            .mobile-menu-btn { display: block; }
-            .site-wrapper { box-shadow: none; }
-            .page-content { padding-top: 80px; }
-            .hero { flex-direction: column; padding: 2rem 1.5rem; text-align: center; min-height: auto; }
-            .hero-text h1 { font-size: 2rem; }
-            .hero-text p { margin: 0 auto 2rem; max-width: 100%; }
-            .hero-image { margin-top: 2rem; }
-            .hero-image img { max-width: 100%; }
-            
-            /* APP SECTION MOBILE - CORRIGÉ */
-            .app-section { 
-                flex-direction: column; 
-                padding: 3rem 1.5rem;
-                gap: 3rem;
-            }
-            .app-mockups { 
-                height: 350px; 
-                width: 100%;
-                position: relative;
-            }
-            .phone-1 { width: 160px; height: 320px; left: 0; top: 20px; }
-            .phone-2 { width: 140px; height: 280px; left: 70px; top: 0; }
-            .phone-3 { width: 120px; height: 240px; left: 140px; top: 30px; }
-            .app-text { 
-                padding-left: 0;
-                text-align: center;
-            }
-            .app-text h2 { font-size: 2rem; }
-            
-            .fleet-grid { grid-template-columns: repeat(2, 1fr); }
-            .fleet-card-large { grid-column: span 2; }
-            .features-grid { grid-template-columns: repeat(2, 1fr); }
-            .about-stats { grid-template-columns: repeat(2, 1fr); padding: 3rem 1.5rem; }
-            .about-content { grid-template-columns: 1fr; padding: 3rem 1.5rem; }
-            .values-grid-inner { grid-template-columns: 1fr; }
-            .team-grid { grid-template-columns: repeat(2, 1fr); }
-            .cars-grid { grid-template-columns: repeat(2, 1fr); padding: 0 1.5rem 3rem; }
-            .features-detail-grid { grid-template-columns: 1fr; }
-            .contact-grid { grid-template-columns: 1fr; }
-            .download-hero { flex-direction: column; padding: 3rem 1.5rem; }
-            .page-hero h1 { font-size: 2.2rem; }
-            .footer { flex-direction: column; gap: 2rem; }
-        }
+    .navbar { width: 100%; max-width: 100%; margin: 0; border-radius: 0; padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    .mobile-menu-btn { display: block; }
+    .site-wrapper { box-shadow: none; }
+    .page-content { padding-top: 80px; }
+    .hero { flex-direction: column; padding: 2rem 1.5rem; text-align: center; min-height: auto; }
+    .hero-text h1 { font-size: 2rem; }
+    .hero-text p { margin: 0 auto 2rem; max-width: 100%; }
+    .hero-image { margin-top: 2rem; }
+    .hero-image img { max-width: 100%; }
+
+    /* 🔧 CORRECTION SECTION APPLICATION MOBILE */
+    .app-section {
+        flex-direction: column;
+        padding: 3rem 1.5rem 4rem;
+        gap: 3rem;
+    }
+    .app-mockups {
+        height: 320px;
+        width: 100%;
+        position: relative;
+        margin: 0 auto;
+        overflow: visible;
+    }
+    .phone-1 { width: 140px; height: 280px; left: 5%; top: 10px; }
+    .phone-2 { width: 120px; height: 240px; left: 35%; top: 0; }
+    .phone-3 { width: 100px; height: 200px; left: 60%; top: 20px; }
+    .app-text {
+        padding-left: 0;
+        padding-right: 0;
+        text-align: center;
+        margin-top: 1rem;
+    }
+    .app-text h2 { font-size: 1.8rem; margin-bottom: 1rem; }
+    .app-text p { font-size: 0.9rem; line-height: 1.6; margin-bottom: 1.5rem; }
+    .app-tag { margin-bottom: 0.75rem; }
+
+    .fleet-grid { grid-template-columns: repeat(2, 1fr); }
+    .fleet-card-large { grid-column: span 2; }
+    .features-grid { grid-template-columns: repeat(2, 1fr); }
+    .about-stats { grid-template-columns: repeat(2, 1fr); padding: 3rem 1.5rem; }
+    .about-content { grid-template-columns: 1fr; padding: 3rem 1.5rem; }
+    .values-grid-inner { grid-template-columns: 1fr; }
+    .team-grid { grid-template-columns: repeat(2, 1fr); }
+    .cars-grid { grid-template-columns: repeat(2, 1fr); padding: 0 1.5rem 3rem; }
+    .features-detail-grid { grid-template-columns: 1fr; }
+    .contact-grid { grid-template-columns: 1fr; }
+    .download-hero { flex-direction: column; padding: 3rem 1.5rem; }
+    .page-hero h1 { font-size: 2.2rem; }
+    .footer { flex-direction: column; gap: 2rem; }
+}
+
+@media (max-width: 600px) {
+    .features-grid { grid-template-columns: 1fr; }
+    .fleet-grid { grid-template-columns: 1fr; }
+    .fleet-card-large { grid-column: span 1; }
+    .cars-grid { grid-template-columns: 1fr; }
+    .team-grid { grid-template-columns: 1fr; }
+    .about-stats { grid-template-columns: 1fr; }
+    .stat-number { font-size: 2rem; }
+    .hero-text h1 { font-size: 1.75rem; }
+    .app-text h2 { font-size: 1.6rem; }
+
+    /* 📱 CORRECTION TRÈS PETITS ÉCRANS */
+    .app-mockups { height: 260px; }
+    .phone-1 { width: 120px; height: 240px; left: 2%; }
+    .phone-2 { width: 100px; height: 200px; left: 30%; }
+    .phone-3 { width: 85px; height: 170px; left: 58%; }
+}
         
-        @media (max-width: 600px) {
-            .features-grid { grid-template-columns: 1fr; }
-            .fleet-grid { grid-template-columns: 1fr; }
-            .fleet-card-large { grid-column: span 1; }
-            .cars-grid { grid-template-columns: 1fr; }
-            .team-grid { grid-template-columns: 1fr; }
-            .about-stats { grid-template-columns: 1fr; }
-            .stat-number { font-size: 2rem; }
-            .hero-text h1 { font-size: 1.75rem; }
-            .app-text h2 { font-size: 1.75rem; }
-            .app-mockups { height: 280px; }
-            .phone-1 { width: 130px; height: 260px; }
-            .phone-2 { width: 110px; height: 220px; left: 50px; }
-            .phone-3 { width: 90px; height: 180px; left: 100px; }
-        }
 
         /* MODAL RÉSERVATION */
         .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); backdrop-filter: blur(8px); z-index: 10000; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
