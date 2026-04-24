@@ -384,41 +384,49 @@
         .mobile-nav-close { position: absolute; top: 1.5rem; right: 1.5rem; background: none; border: none; font-size: 2rem; cursor: pointer; }
 
         /* MEDIA QUERIES CORRIGÉES */
-        @media (max-width: 968px) {
-    .navbar { width: 100%; max-width: 100%; margin: 0; border-radius: 0; padding: 1rem 1.5rem; }
-    .nav-links { display: none; }
-    .mobile-menu-btn { display: block; }
-    .site-wrapper { box-shadow: none; }
-    .page-content { padding-top: 80px; }
-    .hero { flex-direction: column; padding: 2rem 1.5rem; text-align: center; min-height: auto; }
-    .hero-text h1 { font-size: 2rem; }
-    .hero-text p { margin: 0 auto 2rem; max-width: 100%; }
-    .hero-image { margin-top: 2rem; }
-    .hero-image img { max-width: 100%; }
-
-    /* 🔧 CORRECTION SECTION APPLICATION MOBILE */
+        /* 🚨 FORCE MOBILE - À AJOUTER EN DERNIER */
+@media (max-width: 968px) {
     .app-section {
-        flex-direction: column;
-        padding: 3rem 1.5rem 4rem;
-        gap: 3rem;
+        flex-direction: column !important;
+        padding: 2rem 1rem !important;
     }
     .app-mockups {
-        height: 320px;
-        width: 100%;
-        position: relative;
-        margin: 0 auto;
-        overflow: visible;
+        height: 250px !important;
+        width: 100% !important;
+        max-width: 400px !important;
+        margin: 0 auto 2rem !important;
     }
-    .phone-1 { width: 140px; height: 280px; left: 5%; top: 10px; }
-    .phone-2 { width: 120px; height: 240px; left: 35%; top: 0; }
-    .phone-3 { width: 100px; height: 200px; left: 60%; top: 20px; }
+    .phone {
+        transform: none !important;
+        opacity: 1 !important;
+    }
+    .phone-1 {
+        width: 130px !important;
+        height: 260px !important;
+        left: 10px !important;
+        top: 0 !important;
+    }
+    .phone-2 {
+        width: 110px !important;
+        height: 220px !important;
+        left: 90px !important;
+        top: 20px !important;
+    }
+    .phone-3 {
+        width: 90px !important;
+        height: 180px !important;
+        left: 170px !important;
+        top: 40px !important;
+    }
     .app-text {
-        padding-left: 0;
-        padding-right: 0;
-        text-align: center;
-        margin-top: 1rem;
+        text-align: center !important;
+        padding: 0 !important;
+        width: 100% !important;
     }
-    .app-text h2 { font-size: 1.8rem; margin-bottom: 1rem; }
+    .app-text h2 {
+        font-size: 1.5rem !important;
+    }
+}
     .app-text p { font-size: 0.9rem; line-height: 1.6; margin-bottom: 1.5rem; }
     .app-tag { margin-bottom: 0.75rem; }
 
