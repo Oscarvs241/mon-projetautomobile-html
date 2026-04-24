@@ -149,12 +149,13 @@
         .app-bottom-nav { display: flex; justify-content: space-around; padding: 0.8rem; border-top: 1px solid var(--gray); }
         .app-nav-item { width: 24px; height: 24px; background: var(--gray-light); border-radius: 6px; }
         .app-text { 
-            flex: 1; 
-            opacity: 0; 
-            transform: translateX(80px); 
-            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            padding-left: 2rem;
-        }
+    flex: 1; 
+    opacity: 0; 
+    transform: translateX(80px); 
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    padding-left: 2rem;
+    min-width: 0; /* empêche le débordement flex */
+}
         .app-text.visible { opacity: 1; transform: none; }
         .app-tag { display: inline-block; font-size: 0.7rem; color: var(--gray-medium); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 1rem; }
         .app-text h2 { font-size: 2.5rem; font-weight: 800; margin-bottom: 1.5rem; }
@@ -383,36 +384,46 @@
         .mobile-nav a { font-size: 1.5rem; font-weight: 700; text-decoration: none; color: var(--black); transition: color 0.3s; cursor: pointer; }
         .mobile-nav-close { position: absolute; top: 1.5rem; right: 1.5rem; background: none; border: none; font-size: 2rem; cursor: pointer; }
 
-       @media (max-width: 968px) {
-    .app-mockups {
-        display: flex;
-        justify-content: center;
-        align-items: flex-end;
-        gap: -20px; /* Chevauchement contrôlé */
-        height: auto;
-        min-height: 300px;
-        padding: 2rem 0;
-    }
-    .phone {
-        position: relative !important; /* Override absolute */
-        left: auto !important;
-        right: auto !important;
-        top: auto !important;
-        transform: none !important;
-        margin: 0 -15px; /* Chevauchement latéral */
-    }
-    .phone-1 { z-index: 3; }
-    .phone-2 { z-index: 2; margin-top: -30px; }
-    .phone-3 { z-index: 1; margin-top: -60px; }
+        /* MEDIA QUERIES CORRIGÉES */
+        @media (max-width: 968px) {
+    .navbar { width: 100%; max-width: 100%; margin: 0; border-radius: 0; padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    .mobile-menu-btn { display: block; }
+    .site-wrapper { box-shadow: none; }
+    .page-content { padding-top: 80px; }
+    .hero { flex-direction: column; padding: 2rem 1.5rem; text-align: center; min-height: auto; }
+    .hero-text h1 { font-size: 2rem; }
+    .hero-text p { margin: 0 auto 2rem; max-width: 100%; }
+    .hero-image { margin-top: 2rem; }
+    .hero-image img { max-width: 100%; }
+
+    /* 🔧 CORRECTION SECTION APPLICATION MOBILE */
+   .app-section {
+    flex-direction: column;
+    padding: 3rem 1.5rem 4rem;
+    gap: 2rem;
+    align-items: center;
 }
-    .app-text {
-        padding-left: 0;
-        padding-right: 0;
-        text-align: center;
-        margin-top: 1rem;
-    }
-    .app-text h2 { font-size: 1.8rem; margin-bottom: 1rem; }
-    .app-text p { font-size: 0.9rem; line-height: 1.6; margin-bottom: 1.5rem; }
+.app-mockups {
+    height: 300px;
+    width: 100%;
+    max-width: 380px;
+    position: relative;
+    flex-shrink: 0;
+    overflow: visible;
+}
+.phone-1 { width: 140px; height: 280px; left: 0%; top: 10px; }
+.phone-2 { width: 120px; height: 240px; left: 33%; top: 0; }
+.phone-3 { width: 100px; height: 200px; left: 62%; top: 20px; }
+.app-text {
+    padding-left: 0;
+    text-align: center;
+    transform: translateX(0) !important; /* annule la translation par défaut */
+    opacity: 1 !important; /* visible sans animation sur mobile */
+    width: 100%;
+}
+.app-text h2 { font-size: 1.8rem; margin-bottom: 1rem; }
+.app-text p { font-size: 0.9rem; line-height: 1.6; margin-bottom: 1.5rem; }
     .app-tag { margin-bottom: 0.75rem; }
 
     .fleet-grid { grid-template-columns: repeat(2, 1fr); }
@@ -442,10 +453,10 @@
     .app-text h2 { font-size: 1.6rem; }
 
     /* 📱 CORRECTION TRÈS PETITS ÉCRANS */
-    .app-mockups { height: 260px; }
-    .phone-1 { width: 120px; height: 240px; left: 2%; }
-    .phone-2 { width: 100px; height: 200px; left: 30%; }
-    .phone-3 { width: 85px; height: 170px; left: 58%; }
+    .app-mockups { height: 260px; max-width: 320px; }
+.phone-1 { width: 118px; height: 236px; left: 0%; }
+.phone-2 { width: 100px; height: 200px; left: 32%; }
+.phone-3 { width: 84px; height: 168px; left: 61%; }
 }
         
 
@@ -965,7 +976,14 @@
             document.querySelectorAll('.faq-item.visible').forEach((c, idx) => c.style.transitionDelay = (idx * 0.08) + 's');
             document.querySelectorAll('.brand-item.visible').forEach((c, idx) => c.style.transitionDelay = (idx * 0.05) + 's');
         }
-
+const phones = document.querySelectorAll('.phone'), am = document.getElementById('appMockups'), at = document.getElementById('appText');
+if (am && isInViewport(am, 0.2)) { 
+    phones.forEach(p => p.classList.add('visible')); 
+    if (window.innerWidth > 968) at.classList.add('visible'); // animation seulement desktop
+} else { 
+    phones.forEach(p => p.classList.remove('visible')); 
+    if (window.innerWidth > 968) at.classList.remove('visible'); 
+}
         let ticking = false;
         window.addEventListener('scroll', function() {
             if (!ticking) { window.requestAnimationFrame(function() {
@@ -1025,4 +1043,4 @@
         });
     </script>
 </body>
-</html>
+</html>l
