@@ -1,0 +1,378 @@
+/* style.css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #000;
+    --secondary: #666;
+    --accent: #FF6B00;
+    --bg: #FAFAFA;
+    --white: #FFFFFF;
+    --gray: #F5F5F5;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--primary);
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* Navbar */
+.navbar {
+    padding: 1.5rem 0;
+    background: var(--white);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--secondary);
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--primary);
+}
+
+.btn-primary {
+    background: var(--primary);
+    color: var(--white);
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+/* Hero Section */
+.hero {
+    padding: 10rem 0 6rem;
+    text-align: center;
+}
+
+.hero-content h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    opacity: 0;
+    animation: fadeInUp 1s ease forwards;
+}
+
+.highlight {
+    color: var(--accent);
+}
+
+.hero-content p {
+    font-size: 1.25rem;
+    color: var(--secondary);
+    margin-bottom: 2rem;
+    opacity: 0;
+    animation: fadeInUp 1s ease 0.2s forwards;
+}
+
+.btn-large {
+    background: var(--primary);
+    color: var(--white);
+    border: none;
+    padding: 1rem 2.5rem;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    opacity: 0;
+    animation: fadeInUp 1s ease 0.4s forwards;
+    transition: transform 0.3s;
+}
+
+.btn-large:hover {
+    transform: scale(1.05);
+}
+
+/* Features */
+.features {
+    padding: 6rem 0;
+    background: var(--white);
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.feature-card {
+    background: var(--gray);
+    padding: 2.5rem;
+    border-radius: 20px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.feature-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 0.6s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.feature-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.feature-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+}
+
+.feature-card p {
+    color: var(--secondary);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* App Section */
+.app-section {
+    padding: 6rem 0;
+}
+
+.app-content {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+}
+
+.app-mockups {
+    flex: 1;
+    position: relative;
+    height: 600px;
+}
+
+.phone {
+    position: absolute;
+    background: var(--primary);
+    border-radius: 40px;
+    padding: 10px;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+    transition: transform 0.3s;
+}
+
+.phone-1 {
+    width: 280px;
+    height: 560px;
+    left: 0;
+    top: 20px;
+    transform: rotate(-15deg);
+    z-index: 3;
+}
+
+.phone-2 {
+    width: 260px;
+    height: 520px;
+    left: 120px;
+    top: 0;
+    transform: rotate(-5deg);
+    z-index: 2;
+}
+
+.phone-3 {
+    width: 240px;
+    height: 480px;
+    left: 250px;
+    top: 40px;
+    transform: rotate(5deg);
+    z-index: 1;
+}
+
+.phone:hover {
+    transform: rotate(0deg) scale(1.05);
+    z-index: 10;
+}
+
+.phone-screen {
+    background: var(--white);
+    border-radius: 30px;
+    height: 100%;
+    overflow: hidden;
+}
+
+.app-ui {
+    padding: 1rem;
+    height: 100%;
+}
+
+.car-card {
+    background: var(--gray);
+    border-radius: 15px;
+    padding: 1rem;
+}
+
+.car-image-placeholder {
+    height: 150px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 10px;
+    margin-bottom: 1rem;
+}
+
+.car-name {
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+.car-price {
+    color: var(--accent);
+    font-weight: 600;
+    margin-top: 0.5rem;
+}
+
+.map-placeholder {
+    height: 100%;
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    border-radius: 10px;
+}
+
+.booking-ui {
+    text-align: center;
+    padding: 2rem 1rem;
+}
+
+.time-display {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.booking-info {
+    color: var(--secondary);
+    margin-top: 0.5rem;
+}
+
+.app-text {
+    flex: 1;
+    opacity: 0;
+    transform: translateX(50px);
+    transition: all 0.8s ease;
+}
+
+.app-text.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.tag {
+    display: inline-block;
+    background: var(--gray);
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--secondary);
+}
+
+.app-text h2 {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+}
+
+.app-text p {
+    color: var(--secondary);
+    line-height: 1.8;
+    margin-bottom: 2rem;
+    font-size: 1.05rem;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+}
+
+/* Responsive */
+@media (max-width: 968px) {
+    .app-content {
+        flex-direction: column;
+    }
+    
+    .app-mockups {
+        height: 400px;
+        width: 100%;
+    }
+    
+    .phone-1 {
+        width: 200px;
+        height: 400px;
+    }
+    
+    .phone-2 {
+        width: 180px;
+        height: 360px;
+        left: 80px;
+    }
+    
+    .phone-3 {
+        width: 160px;
+        height: 320px;
+        left: 160px;
+    }
+    
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    
+    .nav-links {
+        display: none;
+    }
+}
